@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-zq!z-t6owje%6%v3!$d$nn3v0i
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # Add your Render URL here
-ALLOWED_HOSTS = ['teacher_mng_system.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['teacher_mng_system.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
