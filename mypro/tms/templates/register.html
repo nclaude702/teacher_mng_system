@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - Teacher Management</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<body>
+<div class="container form-container">
+  <h2>Create Account</h2>
+  <form action="/register/" method="POST">
+    {% csrf_token %}
+    
+    <label>Name</label>
+    <input type="text" name="names" required>
+
+    <label>Username</label> 
+    <input type="text" name="username" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+</body>
+</html>

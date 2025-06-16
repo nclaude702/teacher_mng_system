@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Teacher</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="flex-nav">
+  <div><strong>Teacher Management System</strong></div>
+  <div>
+    <a href="{% url 'dashboard' %}">Dashboard</a>
+    <a href="{% url 'view_users' %}">users</a>
+    <a href="{% url 'index' %}">Logout</a>
+  </div>
+</div>
+
+<div class="container form-container">
+  <h3>Edit Teacher Details</h3>
+  <form action="{% url 'save_teacher' %}" method="POST">
+    {% csrf_token %}
+    <!-- Hidden field to pass the teacher ID -->
+    <input type="hidden" name="id" value="{{ teacher.id }}">
+
+    <label>Teacher Name</label>
+    <input type="text" name="tname" value="{{ teacher.tname }}" required>
+
+    <label>Subject Handled</label>
+    <input type="text" name="subject" value="{{ teacher.subject }}" required>
+
+    <label>Qualification</label>
+    <input type="text" name="qualification" value="{{ teacher.qualification }}">
+
+    <label>Contact Info</label>
+    <input type="text" name="contact" value="{{ teacher.contact }}">
+
+    <label>Leave Record</label>
+    <input type="text" name="leave_record" value="{{ teacher.leave_record }}">
+
+    <button type="submit">Update Teacher</button>
+  </form>
+</div>
+</body>
+</html>

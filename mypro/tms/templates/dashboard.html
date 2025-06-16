@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - Teacher Management</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="flex-nav">
+    <div><strong>Teacher Management System</strong></div>
+    <div>
+      <!-- Navigate to Manage Teachers page -->
+      <a href="{% url 'manage_teacher' %}">Manage Teachers</a>
+
+      <!-- Navigate to View Users page -->
+      <a href="{% url 'view_users' %}">Users</a>
+
+      <!-- Logout (go back to login/index page) -->
+      <a href="{% url 'index' %}">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Welcome to the Dashboard</h2>
+    <p>Select an option from the navigation bar above.</p>
+  </div>
+</body>
+</html>

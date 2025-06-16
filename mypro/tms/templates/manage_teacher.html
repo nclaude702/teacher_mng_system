@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Teachers</title>
+</head>
+ {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+<body>
+<div class="flex-nav">
+  <div><strong>Teacher Management System</strong></div>
+  <div>
+    <a href="{% url 'dashboard' %}">Dashboard</a>
+    <a href="{% url 'view_users' %}">users</a>
+    <a href="{% url 'index' %}">Logout</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-container">
+    <h3>Add/Update Teacher</h3>
+    <form action="{% url 'save_teacher' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="tname" placeholder="Teacher Name" required>
+      <input type="text" name="subject" placeholder="Subject Handled" required>
+      <input type="text" name="qualification" placeholder="Qualification">
+      <input type="text" name="contact" placeholder="Contact Info">
+      <input type="text" name="leave_record" placeholder="Leave Record (e.g. 2 days)">
+      <button type="submit">Save Teacher</button>
+    </form>
+  </div>
+
+  <div class="table-container">
+    <h3>Teacher Records</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Qualification</th>
+          <th>Contact</th>
+          <th>Leave</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for teacher in teachers %}
+        <tr>
+          <td>{{ teacher.tname }}</td>
+          <td>{{ teacher.subject }}</td>
+          <td>{{ teacher.qualification }}</td>
+          <td>{{ teacher.contact }}</td>
+          <td>{{ teacher.leave_record }}</td>
+          <td>
+            <form action="{% url 'edit_teacher' teacher.id %}" method="GET" style="display:inline;">
+              <button type="submit">Edit</button>
+            </form>
+            <form action="{% url 'delete_teacher' teacher.id %}" method="POST" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">No teacher records found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

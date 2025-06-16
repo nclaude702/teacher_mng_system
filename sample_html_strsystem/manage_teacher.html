@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Teachers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="flex-nav">
+  <div><strong>Teacher Management System</strong></div>
+  <div>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="#">Logout</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-container">
+    <h3>Add/Update Teacher</h3>
+    <form action="/save_teacher" method="POST">
+      <input type="text" name="name" placeholder="Teacher Name" required>
+      <input type="text" name="subject" placeholder="Subject Handled" required>
+      <input type="text" name="qualification" placeholder="Qualification">
+      <input type="text" name="contact" placeholder="Contact Info">
+      <input type="text" name="leave_record" placeholder="Leave Record (e.g. 2 days)">
+      <button type="submit">Save Teacher</button>
+    </form>
+  </div>
+
+  <div class="table-container">
+    <h3>Teacher Records</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Qualification</th>
+          <th>Contact</th>
+          <th>Leave</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample Row -->
+        <tr>
+          <td>John Doe</td>
+          <td>Mathematics</td>
+          <td>M.Sc</td>
+          <td>john@example.com</td>
+          <td>3 days</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
